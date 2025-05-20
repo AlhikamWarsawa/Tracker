@@ -1,5 +1,10 @@
 # NIGGALEK Application
 NIGGALEK is a mobile application built with React Native and Expo that features prayer tracking, news browsing, and an AI-powered customer support system using Google's Gemini AI model.
+
+# Preview
+![Alt Text](/assets/images/demo.png)
+
+
 ## Installation Guide
 ### Prerequisites
 - Node.js (v14.0 or higher)
