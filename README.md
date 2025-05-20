@@ -1,50 +1,85 @@
-# Welcome to your Expo app 👋
+# NIGGALEK Application
+NIGGALEK is a mobile application built with React Native and Expo that features prayer tracking, news browsing, and an AI-powered customer support system using Google's Gemini AI model.
+## Installation Guide
+### Prerequisites
+- Node.js (v14.0 or higher)
+- npm (v6.0 or higher)
+- Expo CLI
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
-
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+### Installation Steps
+1. Clone the repository
+``` bash
+   git clone https://github.com/yourusername/niggalek.git
+   cd niggalek
 ```
+1. Install dependencies
+``` bash
+   npm install
+```
+1. Create a `.env` file (for storing API keys safely)
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Running the Application
+### Backend Server
+The application uses a Laravel backend server to handle prayer tracking data.
+1. Start the backend server:
+``` bash
+   cd backend
+   php artisan serve
+```
+This will start the backend server at `http://127.0.0.1:8000`
+### Frontend Application
+1. Start the Expo development server:
+``` bash
+   npm start
+```
+1. Run on a specific platform:
+``` bash
+   npm run android
+   # or
+   npm run ios
+   # or
+   npm run web
+```
+## API Endpoints
+The application interacts with the following API endpoints:
+### Prayer Tracking API
+- **GET `/api/niggalek`**: Retrieve all prayer records
+- **POST `/api/niggalek`**: Create a new prayer record
+   - Required fields: `name`, `category`, `date`
 
-## Learn more
+- **PUT `/api/niggalek/{id}`**: Update an existing prayer record
+   - Required fields: `name`, `category`, `date`
 
-To learn more about developing your project with Expo, look at the following resources:
+- **DELETE `/api/niggalek/{id}`**: Delete a prayer record
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### News API
+- The app uses NewsAPI for the Explore tab
+- Endpoint: `https://newsapi.org/v2/top-headlines?country=us&apiKey=YOUR_API_KEY`
 
-## Join the community
+### AI Customer Service
+- Uses Google's Gemini AI model for customer support
+- Model: `gemini-2.0-flash-lite`
 
-Join our community of developers creating universal apps.
+## Testing Results
+### Backend API Testing (Postman)
+_GET request to retrieve all prayer records_
+_POST request to create a new prayer record_
+_PUT request to update an existing prayer record_
+_DELETE request to remove a prayer record_
+### Mobile App Screenshots
+_Prayer Tracking Home Screen_
+_News Exploration Screen_
+_AI-powered Customer Service Interface_
+## Features
+1. **Prayer Tracker**: Add, edit, and delete prayer records with categories (wajib/sunnah) and dates
+2. **News Explorer**: Browse latest news articles from various sources
+3. **AI Customer Service**: Get AI-powered assistance for any questions or issues
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Technologies Used
+- React Native
+- Expo
+- TypeScript
+- Laravel (Backend)
+- Google Gemini AI
+- News API
+- twrnc (TailwindCSS for React Native)
